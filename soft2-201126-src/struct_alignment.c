@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-struct student
-{
+struct student {
   int id;
   char name[100];
   int age;
@@ -9,8 +8,7 @@ struct student
   double weight;
 };
 
-struct tagged_student1
-{
+struct tagged_student1 {
   int id;
   char name[100];
   int age;
@@ -19,8 +17,7 @@ struct tagged_student1
   char tag;
 };
 
-struct tagged_student2
-{
+struct tagged_student2 {
   char tag;
   int id;
   char name[100];
@@ -29,8 +26,7 @@ struct tagged_student2
   double weight;
 };
 
-int main (int argc, char**argv)
-{
+int main(int argc, char** argv) {
   struct student s_begin;
   struct student s1;
   struct tagged_student1 s2;
@@ -47,6 +43,6 @@ int main (int argc, char**argv)
   /* printf 表示には%ld を用いる*/
 
   // do_something!!
-  
+
   return 0;
 }
