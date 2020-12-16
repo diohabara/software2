@@ -19,14 +19,5 @@ int main(void) {
   f[11] = 10.0;
   // "Hello,World\n" と出力してほしい
   printf("%s", (char*)f);
-  FILE* output;
-  output = fopen("helloworld.txt", "w");
-  if (output == NULL) {
-    printf("cannot open\n");
-    exit(1);
-  }
-
-  fprintf(output, "%s", (char*)f);
-  fclose(output);
   return 0;
 }
