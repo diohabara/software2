@@ -8,3 +8,6 @@ TARGETS := $(SOURCES:.c=)
 all: $(TARGETS)
 .c:
 	$(CC) $(CCFLAGS) -o $@ $<
+
+clean:
+	rm -rf *.dSYM
