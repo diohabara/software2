@@ -176,6 +176,15 @@ Itemset *init_itemset(int number, int seed) {
   return list;
 }
 
+Itemset *load_itemset(char* filename) {
+  FILE* input = fopen(filename, "r");
+  char line[256];
+  while (fgets(line, sizeof(line), file)) {
+    pritnf("%s", line);
+  }
+  flose(file);
+}
+
 // itemset の free関数
 void free_itemset(Itemset *list) {
   free(list->item);
