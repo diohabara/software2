@@ -129,7 +129,7 @@ int main(int argc, char **argv) {
   /* 引数処理: ユーザ入力が正しくない場合は使い方を標準エラーに表示して終了 */
   if (argc != 3) {
     fprintf(stderr,
-            "usage: %s <the number of items (int)> <max capacity (double)>\n",
+            "usage: %s <filename> <max capacity (double)>\n",
             argv[0]);
     exit(1);
   }
@@ -137,17 +137,15 @@ int main(int argc, char **argv) {
   // 個数の上限はあらかじめ定めておく
   const int max_items = 100;
 
-  const int n = load_int(argv[1]);
-  assert(n <= max_items);  // assert で止める
-
+  Itemset *items = load_itemset(argv[1]);
   const double W = load_double(argv[2]);
   assert(W >= 0.0);
 
+  int n = 0;
   printf("max capacity: W = %.f, # of items: %d\n", W, n);
 
   // 乱数シードを1にして、初期化 (ここは変更可能)
-  int seed = 1;
-  Itemset *items = init_itemset(n, seed);
+  // int seed = 1;
   print_itemset(items);
 
   // ソルバーで解く
@@ -176,13 +174,23 @@ Itemset *init_itemset(int number, int seed) {
   return list;
 }
 
-Itemset *load_itemset(char* filename) {
-  FILE* input = fopen(filename, "r");
-  char line[256];
-  while (fgets(line, sizeof(line), file)) {
-    pritnf("%s", line);
+Itemset *load_itemset(char* filename, int* n) {
+  FILE* fp = fopen(filename, "r");
+  if (fp == NULL)
+    exit(1);
+
+  char* line = NULL;
+  size_t len = 0;
+  ssize_t read;
+
+  fscanf(fp, "%d", n);
+  while ((read = getline(&line, &len, fp)) != -1) {
+    printf("%s\n", atof(line));
   }
-  flose(file);
+  fclose(fp);
+  if (line)
+    free(line);
+
 }
 
 // itemset の free関数
