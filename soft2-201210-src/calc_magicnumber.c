@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
 
 void print_str_as_float(char* str) {
   for (int i = 0; i < strlen(str); ++i) {

@@ -19,7 +19,7 @@ int main(void) {
   f[11] = 10.000000;
   f[12] = 0.000000;
   // "Hello,World\n" と出力してほしい
-  for (int i = 0; i < sizeof(f)/sizeof(f[0]); ++i) {
+  for (int i = 0; i < sizeof(f) / sizeof(f[0]); ++i) {
     printf("%c", (char)f[i]);
   }
   return 0;
