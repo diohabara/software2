@@ -78,7 +78,7 @@ int main(int argc, char **argv) {
     fprintf(stderr, "Usage: %s <city file>\n", argv[0]);
     exit(1);
   }
-  int n;
+  int n = 0;
   assert(n > 1 && n <= max_cities);  // さすがに都市数100は厳しいので
 
   City *city = load_cities(argv[1], &n);
