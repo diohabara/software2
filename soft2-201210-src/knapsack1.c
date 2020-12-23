@@ -128,9 +128,7 @@ double load_double(const char *argvalue) {
 int main(int argc, char **argv) {
   /* 引数処理: ユーザ入力が正しくない場合は使い方を標準エラーに表示して終了 */
   if (argc != 3) {
-    fprintf(stderr,
-            "usage: %s <filename> <max capacity (double)>\n",
-            argv[0]);
+    fprintf(stderr, "usage: %s <filename> <max capacity (double)>\n", argv[0]);
     exit(1);
   }
 
@@ -174,12 +172,11 @@ Itemset *init_itemset(int number, int seed) {
   return list;
 }
 
-Itemset *load_itemset(char* filename, int* n) {
-  FILE* fp = fopen(filename, "r");
-  if (fp == NULL)
-    exit(1);
+Itemset *load_itemset(char *filename, int *n) {
+  FILE *fp = fopen(filename, "r");
+  if (fp == NULL) exit(1);
 
-  char* line = NULL;
+  char *line = NULL;
   size_t len = 0;
   ssize_t read;
 
@@ -188,9 +185,7 @@ Itemset *load_itemset(char* filename, int* n) {
     printf("%s\n", atof(line));
   }
   fclose(fp);
-  if (line)
-    free(line);
-
+  if (line) free(line);
 }
 
 // itemset の free関数
